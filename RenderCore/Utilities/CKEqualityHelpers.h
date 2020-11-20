@@ -87,7 +87,7 @@ namespace CK {
   // For objc types, call [o hash]
   template <typename T> struct hash<T, typename std::enable_if<is_objc_class<T>::value>::type> {
     size_t operator ()(id o) const {
-      return [o hash];
+      return [(NSObject *)o hash];
     }
   };
 
